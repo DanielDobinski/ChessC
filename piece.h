@@ -1,13 +1,13 @@
 
 
-enum Piece
-{
-	pawn = 1,
-	knight,
-	bishop,
-	rook,
-	queen,
-};
+enum Piece {
+    pawn = 0,
+    rook,
+    knight,
+    bishop,
+    queen,
+    king
+};;
 
 enum PieceColor
 {
