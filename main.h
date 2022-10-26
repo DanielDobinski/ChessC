@@ -1,7 +1,2 @@
-#include <stdio.h>
-
-int main()
-{
-	printf("Hello World");
-	return 0;
-}
+#define BoardWidth 8
+#define BoardHeigth 8
