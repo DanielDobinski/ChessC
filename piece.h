@@ -1,4 +1,4 @@
-
+#pragma once
 
 enum Piece {
     pawn = 0,
@@ -7,7 +7,7 @@ enum Piece {
     bishop,
     queen,
     king
-};;
+};
 
 enum PieceColor
 {
