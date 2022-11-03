@@ -23,12 +23,13 @@ struct Board
 };
 
 
-void showColumnNames (void);
-void showRowSeparator (void);
-void showRow (struct Board * board, int row);
-void putFigures(struct Field *fields, enum Piece *pieces, enum PieceColor color);
-void putEmptyRow(struct Field *fields);
-void showBoard();
-struct Board* initBoard();
-void BoardMovePiece (struct Move * move);
+static void showColumnNames (void);
+static void showRowSeparator (void);
+static void showRow (struct Board * board, int row);
+static void putFigures(struct Field *fields, enum Piece *pieces, enum PieceColor color);
+static void putEmptyRow(struct Field *fields);
+extern void showBoard();
+extern struct Board* initBoard();
+extern void BoardMovePiece (struct Move * move);
+extern enum Piece boardGetPiece(struct Board * board, struct Position *position);
 

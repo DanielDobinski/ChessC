@@ -5,7 +5,7 @@
 /**
 * @return 1 if all is good, 0 if sth is wrong 
 */
-int getMove(struct Move * move)
+extern int getMove(struct Move * move)
 {
 	char fromCol;
 	int fromRow;
@@ -28,7 +28,7 @@ int getMove(struct Move * move)
 		return 0;
 }
 
-void createMove(char fromCol, int fromRow, char toCol, int toRow, struct Move * move)
+static void createMove(char fromCol, int fromRow, char toCol, int toRow, struct Move * move)
 {	
 	createPosition(fromCol, fromRow, &(move->positionFrom));
 	createPosition(toCol, toRow, &(move->positionTo));
@@ -37,7 +37,7 @@ void createMove(char fromCol, int fromRow, char toCol, int toRow, struct Move * 
 * TODO: change numbers to Defines from Board.h
 * @return 1 if all is good, 0 if sth is wrong 
 */
-int checkMoveRange(struct Move * move)
+static int checkMoveRange(struct Move * move)
 {
 	if (((&(move->positionFrom))->column) < 0 || ((&(move->positionFrom))->column) > 7)
 		return 0;

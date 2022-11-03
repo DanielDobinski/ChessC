@@ -6,4 +6,4 @@ struct Position
 	int column;
 };
 
-void createPosition(char column, int row, struct Position * position);
+extern void createPosition(char column, int row, struct Position * position);

@@ -8,6 +8,6 @@ struct Move
 	struct Position positionTo;
 };
 
-int getMove(struct Move * move);
-void createMove(char fromCol, int fromRow, char toCol, int toRow, struct Move * move);
-int checkMoveRange(struct Move * move); 
+extern int getMove(struct Move * move);
+static void createMove(char fromCol, int fromRow, char toCol, int toRow, struct Move * move);
+static int checkMoveRange(struct Move * move); 

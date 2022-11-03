@@ -9,7 +9,7 @@ static struct Board board;
 enum Piece pawns[BoardWidth] = {pawn, pawn, pawn, pawn, pawn, pawn, pawn, pawn};
 enum Piece figures[BoardWidth] = {rook, knight, bishop, queen, king, bishop, knight, rook};
 
-void showColumnNames (void)
+static void showColumnNames (void)
 {
 	putchar(' ');
 	for (int i = 0;i < BoardWidth; ++i)
@@ -17,7 +17,7 @@ void showColumnNames (void)
 	putchar('\n');
 }
 
-void showRowSeparator (void)
+static void showRowSeparator (void)
 {
 	putchar(' ');
 	for (int i = 0; i < BoardWidth; ++i)
@@ -26,7 +26,7 @@ void showRowSeparator (void)
 	putchar('\n');
 }
 
-void showRow (struct Board * board, int row)
+static void showRow (struct Board * board, int row)
 {
 	const char pieceName[] = "prkbqk";
 	printf("%u", row + 1);
@@ -49,7 +49,7 @@ void showRow (struct Board * board, int row)
 	putchar('\n');
 }
 
-void putFigures(struct Field * fields, enum Piece * pieces, enum PieceColor color)
+static void putFigures(struct Field * fields, enum Piece * pieces, enum PieceColor color)
 {
 	for (int col = 0; col < BoardWidth; ++col)
 	{
@@ -59,7 +59,7 @@ void putFigures(struct Field * fields, enum Piece * pieces, enum PieceColor colo
 	}
 }
 
-void putEmptyRow(struct Field * fields)
+static void putEmptyRow(struct Field * fields)
 {
 	for(int col = 0; col < BoardWidth; ++col)
 	{
@@ -67,7 +67,16 @@ void putEmptyRow(struct Field * fields)
 	}
 }
 
-void showBoard()
+extern enum Piece boardGetPiece(struct Board * board, struct Position *position)
+{
+	enum Piece piece;
+	struct Field *tempField = &(board->fields[position->row][position->column]);
+	piece = tempField->piece;
+
+	return piece;
+}
+
+extern void showBoard()
 {
 showColumnNames();
 	int row = BoardHeigth;
@@ -80,7 +89,7 @@ showColumnNames();
 	showColumnNames();
 }
 
-struct Board* initBoard()
+extern struct Board* initBoard()
 {
 	memset(&board, 0, BoardHeigth * BoardWidth * sizeof(struct Field));
 
@@ -96,7 +105,7 @@ struct Board* initBoard()
 	return &board;
 }
 
-void BoardMovePiece (struct Move * move)
+extern void BoardMovePiece (struct Move * move)
 {
 	struct Field tempField;
 	struct Field * from = &board.fields[(&(move->positionFrom))->row][(&(move->positionFrom))->column];   
