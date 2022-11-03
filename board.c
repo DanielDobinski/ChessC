@@ -96,4 +96,14 @@ struct Board* initBoard()
 	return &board;
 }
 
+void BoardMovePiece (struct Move * move)
+{
+	struct Field tempField;
+	struct Field * from = &board.fields[(&(move->positionFrom))->row][(&(move->positionFrom))->column];   
+	struct Field * to = &board.fields[(&(move->positionTo))->row][(&(move->positionTo))->column];  
+	tempField = *to;
+	*to = *from;
+	*from = tempField;
+}
+
 

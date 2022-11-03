@@ -5,7 +5,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "piece.h"
-
+#include "move.h"
 
 #define BoardHeigth 8
 #define BoardWidth 8
@@ -19,7 +19,7 @@ struct Field
 
 struct Board
 {
-	struct Field fields[BoardWidth][BoardHeigth];
+	struct Field fields[BoardHeigth][BoardWidth];
 };
 
 
@@ -30,4 +30,5 @@ void putFigures(struct Field *fields, enum Piece *pieces, enum PieceColor color)
 void putEmptyRow(struct Field *fields);
 void showBoard();
 struct Board* initBoard();
+void BoardMovePiece (struct Move * move);
 
