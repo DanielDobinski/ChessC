@@ -3,22 +3,27 @@
 #include "player.h"
 
 struct Player players[2];
-static int playerCounter = 0;
+static char playerName[PLAYER_NAME_LENGTH];
+static char *playerNamePtr = &playerName[0];
 
-extern void getPlayerName(void)
+static char* getPlayerName(void)
 {
-	char playerName[PLAYER_NAME_LENGTH];
-	printf("player %u pieces name is:", playerCounter + 1);
 	scanf("%s", playerName);
 
-	player_init(playerName);
-	printf("player name is: \n %s\n", playerName);
+	return(playerNamePtr);
 }
 
-static void player_init(const char * name)
+extern struct Player* player_init(int piecesFlag)
 {
-	struct Player *player = &players[playerCounter];
+	struct Player *player = &players[piecesFlag];
+	char * name = getPlayerName();
 	strcpy((player->playerName), name);
-	playerCounter = ++playerCounter;
+
+	if(piecesFlag == 0)
+		player->color = white;
+	else if(piecesFlag == 1)
+		player->color = black;
+
+	return player;
 }
 

@@ -32,4 +32,5 @@ extern void showBoard();
 extern struct Board* initBoard();
 extern void BoardMovePiece (struct Move * move);
 extern enum Piece boardGetPiece(struct Board * board, struct Position *position);
+extern enum PieceColor boardGetPieceColor(struct Board * board, struct Position *position);
 

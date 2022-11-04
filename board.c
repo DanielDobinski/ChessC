@@ -76,6 +76,15 @@ extern enum Piece boardGetPiece(struct Board * board, struct Position *position)
 	return piece;
 }
 
+extern enum PieceColor boardGetPieceColor(struct Board * board, struct Position *position)
+{
+	enum PieceColor pieceColor;
+	struct Field *tempField = &(board->fields[position->row][position->column]);
+	pieceColor = tempField->color;
+
+	return pieceColor;
+}
+
 extern void showBoard()
 {
 showColumnNames();

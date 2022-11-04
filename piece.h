@@ -1,5 +1,5 @@
 #pragma once
-include "piece.h"
+#include "piece.h"
 
 enum Piece {
     pawn = 0,

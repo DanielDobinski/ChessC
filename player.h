@@ -9,5 +9,5 @@ struct Player
 	enum PieceColor color;
 };
 
-static void player_init(const char * name);
-extern void getPlayerName(void);
+static char* getPlayerName(void);
+extern struct Player* player_init(int piecesFlag);
