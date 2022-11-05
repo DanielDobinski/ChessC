@@ -1,3 +1,4 @@
+#pragma once
 #include "piece.h"
 
 #define PLAYER_NAME_LENGTH (20)

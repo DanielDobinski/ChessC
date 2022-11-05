@@ -1,15 +1,16 @@
 #pragma once
-#include "piece_rule.h"
-#include "move.h"
 
-enum Piece {
-    pawn = 0,
-    rook,
-    knight,
-    bishop,
-    queen,
-    king
-};
+#define PIECE_NAMES\
+    X(pawn)\
+    X(rook)\
+    X(knight)\
+    X(bishop)\
+    X(queen)\
+    X(king)
+
+#define X(piece) piece,
+    enum Piece {PIECE_NAMES};
+#undef X
 
 enum PieceColor
 {
@@ -17,4 +18,3 @@ enum PieceColor
 	black = 8
 };
 
-int pieceCheckRule(enum Piece piece, enum PieceColor color, struct Move *move);

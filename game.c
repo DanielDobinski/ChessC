@@ -25,7 +25,7 @@ extern void game_play(void)
 	pieceColor = boardGetPieceColor(game.board, &(move.positionFrom));
 	statusError = pieceCheckRule(piece, pieceColor, &move);
 
-	printf("\n move game:\n %u \t %u \t %u \t %u \t", move.positionFrom.row, move.positionFrom.column, move.positionTo.row, move.positionTo.column);
+	printf("\n move game:\n %u \t %u \t %u \t %u \t\n", move.positionFrom.row, move.positionFrom.column, move.positionTo.row, move.positionTo.column);
 
 	if (statusError == 0)
 	{
@@ -33,7 +33,7 @@ extern void game_play(void)
 		showBoard();
 	}
 	else 
-		printf("\n\nillegal move\n\n"); 
+		printf("\nillegal move\n"); 
 }
 
 
