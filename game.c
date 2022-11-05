@@ -1,5 +1,4 @@
 #include "game.h"
-#include "piece_rule.h"
 
 struct Game game;
 struct Move move;
@@ -24,6 +23,9 @@ extern void game_play(void)
 	statusError = getMove(&move);
 	piece = boardGetPiece(game.board, &(move.positionFrom));
 	pieceColor = boardGetPieceColor(game.board, &(move.positionFrom));
+	statusError = pieceCheckRule(piece, pieceColor, &move);
+
+	printf("\n move game:\n %u \t %u \t %u \t %u \t", move.positionFrom.row, move.positionFrom.column, move.positionTo.row, move.positionTo.column);
 
 	if (statusError == 0)
 	{

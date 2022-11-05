@@ -83,7 +83,7 @@ extern enum PieceColor boardGetPieceColor(struct Board * board, struct Position 
 	pieceColor = tempField->color;
 
 	return pieceColor;
-}
+}  
 
 extern void showBoard()
 {

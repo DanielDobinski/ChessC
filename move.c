@@ -28,10 +28,18 @@ extern int getMove(struct Move * move)
 		return 1;
 }
 
+extern struct DeltaMove calculateDelta(struct Move * move)
+{
+	struct DeltaMove deltaMove;
+	deltaMove.col = (move->positionTo.column) - (move->positionFrom.column);
+	deltaMove.row = (move->positionTo.row) - (move->positionFrom.row);
+	return deltaMove;
+}
+
 static void createMove(char fromCol, int fromRow, char toCol, int toRow, struct Move * move)
 {	
-	createPosition(fromCol, fromRow, &(move->positionFrom));
-	createPosition(toCol, toRow, &(move->positionTo));
+	createPosition(fromCol, fromRow, &(move->positionFrom)); 
+	createPosition(toCol, toRow, &(move->positionTo)); 
 }
 /**
 * TODO: change numbers to Defines from Board.h
