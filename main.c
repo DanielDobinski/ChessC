@@ -2,11 +2,14 @@
 
 int main()
 {
-	game_init();
+	struct Game * game = game_init();
 	while(1)
 	{
-		game_play();
-	}
 
+		game_play();
+		if((game->capture) == 3)
+			break;
+	}	
+	printf("END OF GAME");
 	return 0;
 }

@@ -12,7 +12,19 @@ struct Game
 {
 	struct Player * player[2];
 	struct Board * board;
+	int currentPlayer;
+	int statusError;
+	int capture;
+	int statusErrorGetMove;           //zero when all is good, 1 when sth is wrong
+	int statusErrorPieceCheckRule;    //zero when all is good, 1 when sth is wrong
+	int statusErrorPlayerCheckColor;  //zero when all is good, 1 when sth is wrong
+	int	statusErrorMoveRange;         //zero when all is good, 1 when sth is wrong
+	int statusErrorOverall;			  //zero when all is good, 1 when sth is wrong
+	enum Piece pieceFrom;
+	enum Piece pieceTo;
+	enum PieceColor pieceColor;
+	enum PieceColor playerColor;
 };
 
 extern void game_play(void);
-extern void game_init(void);
+extern struct Game* game_init(void);

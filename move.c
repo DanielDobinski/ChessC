@@ -1,6 +1,6 @@
 #include <stdio.h>
+#include <ctype.h>
 #include "move.h"
-#include "position.h"
 
 /**
 * @return 0 if all is good, 1 if sth is wrong 
@@ -8,7 +8,7 @@
 extern int getMove(struct Move * move)
 {
 	char fromCol;
-	int fromRow;
+	int fromRow; 
 	char toCol;
 	int toRow;
 	int status;
@@ -18,17 +18,15 @@ extern int getMove(struct Move * move)
 	
 	if (status == 4)
 	{
-		createMove(fromCol, fromRow, toCol, toRow, move);
-		if (checkMoveRange(move) == 0)
-			return 0;
-		else
-			return 1;
+		createMove(tolower(fromCol), fromRow, tolower(toCol), toRow, move);
+		return 0;
+
 	}
 	else
 		return 1;
 }
 
-extern struct DeltaMove calculateDelta(struct Move * move)
+extern struct DeltaMove calculateDelta(const struct Move * move)
 {
 	struct DeltaMove deltaMove;
 	deltaMove.col = (move->positionTo.column) - (move->positionFrom.column);
@@ -40,21 +38,4 @@ static void createMove(char fromCol, int fromRow, char toCol, int toRow, struct 
 {	
 	createPosition(fromCol, fromRow, &(move->positionFrom)); 
 	createPosition(toCol, toRow, &(move->positionTo)); 
-}
-/**
-* TODO: change numbers to Defines from Board.h
-* @return 0 if all is good, 1 if sth is wrong 
-*/
-static int checkMoveRange(struct Move * move)
-{
-	if (((&(move->positionFrom))->column) < 0 || ((&(move->positionFrom))->column) > 7)
-		return 1;
-	else if (((&(move->positionFrom))->row) < 0 || ((&(move->positionFrom))->row) > 7)
-		return 1;
-	else if (((&(move->positionTo))->column) < 0 || ((&(move->positionTo))->column) > 7)
-		return 1;
-	else if (((&(move->positionTo))->row) < 0 || ((&(move->positionTo))->row) > 7)
-		return 1;
-	else
-		return 0;
 }

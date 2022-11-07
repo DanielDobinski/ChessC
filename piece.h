@@ -1,14 +1,14 @@
 #pragma once
 
 #define PIECE_NAMES\
-    X(pawn)\
-    X(rook)\
-    X(knight)\
-    X(bishop)\
-    X(queen)\
-    X(king)
+    X(pawn = 0, 'p')\
+    X(rook, 'r')\
+    X(knight, 'y')\
+    X(bishop, 'b')\
+    X(queen, 'q')\
+    X(king, 'k')
 
-#define X(piece) piece,
+#define X(piece, pieceChar) piece,
     enum Piece {PIECE_NAMES};
 #undef X
 
