@@ -1,9 +1,13 @@
 CC=gcc
-CFLAGS=-I
+CFLAGS=-I.
 
-main: main.c game.c board.c move.c position.c player.c piece.c piece_rule.c
-	$(CC) -o main main.c game.c board.c move.c position.c player.c piece.c piece_rule.c -I.
+OBJECTS = main.o game.o board.o move.o position.o player.o piece.o piece_rule.o
 
+main: $(OBJECTS)
+		$(CC) -o $@ $^ $(CFLAGS)
 
+.PHONY: clean
 
+clean:
+		rm -f *.o
 	

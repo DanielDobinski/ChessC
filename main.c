@@ -12,4 +12,4 @@ int main()
 	}	
 	printf("END OF GAME");
 	return 0;
-}
+} 
