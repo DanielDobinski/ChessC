@@ -1,0 +1,9 @@
+# Ignore Everything
+*
+
+# But not .cpp or. h
+!*.c
+!*.h
+!.gitignore
+!Makefile
+!README.md
